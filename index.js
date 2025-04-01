@@ -1,5 +1,6 @@
 const express = require("express");
-
+const{userModel, adminModel, courseModel, purchaseModel} = require("./db");
+const mongoose=require("mongoose");
 
 const app=express();
 
@@ -13,6 +14,11 @@ app.use("/admin",adminrouter);
 
 
 
-app.use(userrouter);
-app.use(adminrouter);
-app.listen(3000);
+
+async function connectdb() {
+    await mongoose.connect("mongodb+srv://mehtasanchit3:sanchit1234@cluster0.a78ay.mongodb.net/coursewala-app");
+    console.log("DATABASE CONNECTED");
+    app.listen(3000);
+    console.log("listening on port 3000");
+}
+connectdb();
