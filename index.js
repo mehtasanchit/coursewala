@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require("express");
 const{userModel, adminModel, courseModel, purchaseModel} = require("./db");
 const mongoose=require("mongoose");
@@ -17,7 +18,7 @@ app.use("/admin",adminrouter);
 
 
 async function connectdb() {
-    await mongoose.connect("mongodb+srv://mehtasanchit3:sanchit1234@cluster0.a78ay.mongodb.net/coursewala-app");
+    await mongoose.connect(process.env.MONGO_URL);
     console.log("DATABASE CONNECTED");
     app.listen(3000);
     console.log("listening on port 3000");
