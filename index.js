@@ -3,6 +3,7 @@ const{userModel, adminModel, courseModel, purchaseModel} = require("./db");
 const mongoose=require("mongoose");
 
 const app=express();
+app.use(express.json());
 
 const {userrouter} = require("./routes/user");
 const {courserouter} = require("./routes/course");
