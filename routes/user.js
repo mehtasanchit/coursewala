@@ -2,9 +2,10 @@ const Router = require("express");
 const bcrypt= require("bcrypt");
 const {z}= require("zod");
 const userrouter= Router();
-const {UserModel, userModel}=require("../db");
+const { userModel, purchaseModel, courseModel}=require("../db");
 const jwt = require("jsonwebtoken");
 const {JWT_USER_PASSWORD}=require("../config");
+const { userMiddleware } = require("../middleware/user");
 
 userrouter.post("/signup",async function(req,res){
     const email=req.body.email;
@@ -77,8 +78,19 @@ userrouter.post("/signin",async function(req,res){
 
 });
 
-userrouter.get("/purchases",function(req,res){
-
+userrouter.get("/purchases",userMiddleware,async function(req,res){
+    //add function in future to check money is paid or not
+    const userId=req.userId;
+    const purchases= await purchaseModel.find({
+        userId
+    })
+    const courseData= await courseModel.find({
+        _id:{$in:purchases.map(x=>x.courseId)} //convert array of objs to array of strings having courseids
+    })
+    res.json({
+        purchases,
+        courseData
+    })
 });
 
 module.exports = {
