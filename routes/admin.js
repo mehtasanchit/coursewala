@@ -4,6 +4,9 @@ const bcrypt = require("bcrypt");
 const { z } = require("zod");
 const jwt = require("jsonwebtoken");
 const { JWT_ADMIN_PASSWORD } = require("../config");
+if (!JWT_ADMIN_PASSWORD) {
+  throw new Error("JWT_ADMIN_PASSWORD is not defined in the config file.");
+}
 const { adminMiddleware } = require("../middleware/admin");
 const adminrouter = Router();
 
@@ -55,9 +58,14 @@ adminrouter.post("/signup", async function (req, res) {
 
 adminrouter.post("/signin", async function (req, res) {
   const { email, password } = req.body;
+  console.log("request came");
   const admin = await adminModel.findOne({
     email: email,
   });
+  if (!admin) {
+    return res.status(403).json({ message: "INVALID CREDENTIALS" });
+  }
+  console.log("password matching");
   const passwordmatch = await bcrypt.compare(password, admin.password);
 
   if (admin && passwordmatch) {
@@ -71,10 +79,14 @@ adminrouter.post("/signin", async function (req, res) {
     res.json({
       token: token,
     });
+    console.log("token sent");
+    console.log(token);
   } else {
     res.status(403).json({
       message: "INVALID CREDENTIALS",
     });
+    console.log("token sent fail");
+    
   }
 });
 
@@ -84,7 +96,7 @@ adminrouter.post("/course", adminMiddleware, async function (req, res) {
   const course = await courseModel.create({
     title: title,
     description: description,
-    imageurl:imageurl,
+    imageurl: imageurl,
     price: price,
     creatorId: adminId,
   });
@@ -98,8 +110,9 @@ adminrouter.put("/course", adminMiddleware, async function (req, res) {
   const adminId = req.userId;
   const { title, description, imageurl, price, courseId } = req.body;
   const course = await courseModel.updateOne(
-    { _id: courseId,   //course id match //we can do ecplicit match also using findone function
-      creatorId:adminId   //creator id match
+    {
+      _id: courseId, //course id match //we can do ecplicit match also using findone function
+      creatorId: adminId, //creator id match
     },
     {
       title: title,
@@ -114,15 +127,15 @@ adminrouter.put("/course", adminMiddleware, async function (req, res) {
   });
 });
 
-adminrouter.get("/course/bulk",adminMiddleware,async function (req, res) {
+adminrouter.get("/course/bulk", adminMiddleware, async function (req, res) {
   const adminId = req.userId;
   const courses = await courseModel.find({
-    creatorId:adminId
+    creatorId: adminId,
   });
 
   res.json({
-    courses
-  })
+    courses,
+  });
 });
 
 module.exports = {
