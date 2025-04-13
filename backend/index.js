@@ -2,8 +2,10 @@ require('dotenv').config();
 const express = require("express");
 const{userModel, adminModel, courseModel, purchaseModel} = require("./db");
 const mongoose=require("mongoose");
+const cors = require("cors");
 
-const app=express();
+const app = express();
+app.use(cors());
 app.use(express.json());
 
 const {userrouter} = require("./routes/user");
