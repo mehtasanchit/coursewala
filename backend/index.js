@@ -13,7 +13,7 @@ const {courserouter} = require("./routes/course");
 const {adminrouter} = require("./routes/admin");
 
 app.use("/user",userrouter);
-app.use("course",courserouter);
+app.use("/course",courserouter);
 app.use("/admin",adminrouter);
 
 
