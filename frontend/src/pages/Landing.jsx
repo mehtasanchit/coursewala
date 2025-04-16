@@ -90,29 +90,10 @@ export default function LandingPage() {
                 <div className="flex items-center justify-center">
                   <div className="relative w-full max-w-[500px] aspect-video rounded-xl overflow-hidden shadow-2xl">
                     <img
-                      src="/placeholder.svg?height=500&width=800"
+                      src="https://www.codehelp.in/_next/image?url=https%3A%2F%2Fcdn.codehelp.in%2Fcourse%2Fcodehelpred.jpg&w=828&q=75"
                       alt="Online learning platform"
                       className="w-full h-full object-cover"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-tr from-black/40 to-transparent flex items-end p-6">
-                      <button className="inline-flex h-9 items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground gap-1">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="16"
-                          height="16"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          className="h-4 w-4"
-                        >
-                          <polygon points="5 3 19 12 5 21 5 3" />
-                        </svg>
-                        Watch Demo
-                      </button>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -288,7 +269,7 @@ export default function LandingPage() {
                     rating: 4.9,
                     students: 15420,
                     price: "$89.99",
-                    image: "/placeholder.svg?height=200&width=300",
+                    image: "https://www.codehelp.in/_next/image?url=https%3A%2F%2Fcdn.codehelp.in%2Fcourse%2Fcodehelpred.jpg&w=828&q=75",
                   },
                   {
                     title: "DSA Master Complete Batch",
@@ -296,7 +277,7 @@ export default function LandingPage() {
                     rating: 4.8,
                     students: 12350,
                     price: "$79.99",
-                    image: "/placeholder.svg?height=200&width=300",
+                    image: "https://www.codehelp.in/_next/image?url=https%3A%2F%2Fdgyugonj9a9mu.cloudfront.net%2F6610ef3fc32f6201821ac503_scaled_cover_0d24eb5b35.jpg&w=828&q=100",
                   },
                   {
                     title: "Competitive Programming Batch",
@@ -304,7 +285,7 @@ export default function LandingPage() {
                     rating: 4.7,
                     students: 9870,
                     price: "$99.99",
-                    image: "/placeholder.svg?height=200&width=300",
+                    image: "https://www.codehelp.in/_next/image?url=https%3A%2F%2Fcodehelp.s3.ap-south-1.amazonaws.com%2FWeb_Dev_670f900667.jpg&w=828&q=100",
                   },
                   {
                     title: "Mobile App Development",
@@ -312,7 +293,7 @@ export default function LandingPage() {
                     rating: 4.9,
                     students: 10250,
                     price: "$94.99",
-                    image: "/placeholder.svg?height=200&width=300",
+                    image: "https://www.codehelp.in/_next/image?url=https%3A%2F%2Fdgyugonj9a9mu.cloudfront.net%2Fsupreme_1_codehelp_5114b9ebd5.jpg&w=828&q=100",
                   },
                 ].map((course, index) => (
                   <div key={index} className="overflow-hidden rounded-lg border bg-card text-card-foreground shadow-sm">
