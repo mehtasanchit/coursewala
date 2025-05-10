@@ -2,9 +2,9 @@ const CourseCard = ({ course }) => (
     <div className="bg-gradient-to-br from-white via-slate-50 to-slate-100 shadow-lg rounded-2xl p-5 hover:shadow-2xl transition-all duration-300 border border-gray-100">
       
       <img
-        src={course.image || '/placeholder.jpg'}
+        src={course.image}
         alt={course.title}
-        className="w-full h-48 object-cover rounded-xl shadow-sm mb-4"
+        className="w-full h-70 object-cover rounded-xl shadow-sm mb-4"
       />
   
       <h2 className="text-2xl font-bold text-gray-800">{course.title}</h2>
