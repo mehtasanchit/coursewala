@@ -1,17 +1,29 @@
-Create a course selling app
-Initialize a new Node.js project
-Add Express, jsonwebtoken, mongoose to it as a dependency
-Create index.js
-Add route skeleton for user login, signup, purchase a course, sees all courses, sees the purchased courses course
-Add routes for admin login, admin signup, create a course, delete a course, add course content.
-Define the schema for User, Admin, Course, Purchase
-Add a database (mongodb), use dotenv to store the database connection string
-Add middlewares for user and admin auth
-Complete the routes for user login, signup, purchase a course, see course (Extra points - Use express routing to better structure your routes)
-Create the frontend
-Good to haves
+# 🧠 CourseWala
 
-Use cookies instead of JWT for auth
-Add a rate limiting middleware
-Frontend in ejs (low pri)
-Frontend in React
+A secure, modern full-stack **course selling platform** where users can browse, preview, and purchase courses online. Includes user authentication, protected routes, payment gateway, and responsive design.
+
+---
+
+## 🚀 Features
+
+- 🛍 Course listing with preview videos and category filters
+- 🔐 Secure **JWT-based Authentication**
+- 🧾 Stripe integration for real-time payments
+- 🧑‍💼 Role-based dashboards for Admin & Users
+- 📱 Fully responsive with **Tailwind CSS**
+- 🧩 MongoDB-backed data models for users, orders, and courses
+
+---
+
+## 🛠️ Tech Stack
+
+| Tech       | Purpose                             |
+|------------|--------------------------------------|
+| **React.js** | Frontend UI                        |
+| **Node.js** + **Express** | Backend APIs         |
+| **MongoDB** | Database (NoSQL)                   |
+| **Tailwind CSS** | Styling Framework             |
+| **JWT** | Authentication and Protected Routes    |
+
+
+
